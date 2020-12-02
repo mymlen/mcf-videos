@@ -1,0 +1,21 @@
+<!-- Replace {ProductImage} & {ProductThumbnails} with the code below -->
+
+<div class="zoom-gallery">
+  <div class="main-images">
+    <div data-slide-id="zoom" class="zoom-gallery-slide active">
+      <a href="{ProductImageUrl}" class="MagicZoom" id="zoom-v" data-caption="{ProductImageCaption(html: 'false')}">
+        <img src="{ProductImageUrl}"/>
+      </a>
+    </div>
+  </div>
+  <div class="selectors">
+    {ProductThumbnails(
+      imagesize: 'Mini',
+      helper: '{{
+        <a data-slide-id="zoom" href="{ProductImageUrl}" data-image="{ProductImageUrl}" data-zoom-id="zoom-v" data-caption="{ProductImageCaption(html: 'false')}">
+          {ProductImage(link: 'false')}
+        </a>
+      }}'
+    )}
+  </div>
+</div>

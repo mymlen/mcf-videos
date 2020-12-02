@@ -1,0 +1,137 @@
+//------------------------------------------------------------------------------
+// Zoom gallery slide
+//------------------------------------------------------------------------------
+
+.zoom-gallery-slide {
+  display: none;
+  height: 400px;
+}
+
+.zoom-gallery-slide button {
+  display: none !important;
+}
+
+.zoom-gallery-slide i, .selectors i {
+  @include flexbox;
+  @include align-items(center);
+  color: $color-text-light;
+  font-size: 50px;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.zoom-gallery-slide.active {
+  @extend .fade-in;
+  animation-delay: .3s !important;
+  @include align-items(center);
+  background: $color-base-2;
+  display: flex;
+  position: relative;
+}
+
+.zoom-gallery-slide.active img {
+  height: 400px !important;
+  object-fit: contain;
+}
+
+.zoom-gallery .video-slide {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 50%;
+  padding-top: 30px;
+  position: relative;
+}
+
+.zoom-gallery .video-slide.isIframe {
+  padding-bottom: 52.5%;
+}
+
+.zoom-gallery .video-slide iframe,
+.zoom-gallery .video-slide object,
+.zoom-gallery .video-slide embed {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+//------------------------------------------------------------------------------
+// Zoom gallery selectors
+//------------------------------------------------------------------------------
+
+.zoom-gallery .selectors {
+  @include flexbox;
+  flex-flow: row wrap;
+  margin: 10px -5px;
+}
+
+.zoom-gallery .selectors a {
+  border: 1px solid $color-body-border;
+  display: inline-block;
+  margin: 5px;
+  position: relative;
+  width: calc(16.66% - 11px);
+}
+
+.zoom-gallery .selectors i {
+  font-size: $font-size-large;
+}
+
+.zoom-gallery .selectors a:hover,
+.zoom-gallery .selectors a.active {
+  border-color: $color-body-border;
+}
+
+.zoom-gallery .selectors img {
+  -webkit-filter: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  height: 75px;
+  object-fit: contain;
+  padding: 5px;
+  width: 100%;
+}
+
+.zoom-gallery .selectors a span {
+  color: $color-base-1;
+  display: inline-block;
+  font-size: 30px;
+  left: 50%;
+  position: absolute;
+  text-shadow: 0px 1px 10px $black-50;
+  top: 50%;
+  transform:translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  z-index: 100;
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .zoom-gallery .selectors a {
+    width: calc(25% - 11px);
+  }
+}
+
+//------------------------------------------------------------------------------
+// VideoCover iframe
+//------------------------------------------------------------------------------
+
+.video-slide video {
+	display: block;
+	height: 100%;
+	margin: auto;
+	object-fit: cover;
+	width: 100%;
+}
+
+.video-slide .AspectRatio {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+}

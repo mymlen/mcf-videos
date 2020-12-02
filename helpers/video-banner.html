@@ -1,0 +1,30 @@
+{Banners(
+	name: 'video-banner',
+	before: '<div class="VideoBanner">',
+	after: '</div>',
+	helper: '{{
+		<div class="VideoBannerArea">
+			<div class="BannerBackgroundImage" style="background: url('{BannerImageURL(imagesize: 'normal')}')"></div>
+			{BannerUrl(
+				before: '
+				<div class="BannerBackgroundVideo">
+					<video autoplay muted loop poster="{BannerImageURL(width: '1400')}" id="BannerVideo-{BannerId}" data-url="{BannerUrl}">
+						<source src="',
+				after: '" type="video/mp4">
+					</video>
+					<iframe src="https://www.youtube.com/embed{BannerUrl}"></iframe>
+				</div>
+				<div class="BannerBackgroundCover"></div>'
+			)}
+			{BannerText(
+				before: '
+				<div class="OverLay"></div>
+				<div class="VideoBannerContent">
+					<div class="VideoBannerText">',
+						after: '
+					</div>
+				</div>'
+			)}
+		</div>
+	}}'
+)}
